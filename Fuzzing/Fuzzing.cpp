@@ -5,8 +5,17 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-	cout << "Hello CMake." << endl;
-	return 0;
+	if (argc != 3) {
+		cout << "Invalid input\n" << "./Fuzzing <target program> <input>" << endl;
+		return 0;
+	}
+	else {
+		char* command[100];
+		strcpy
+		system();
+		return 0;
+	}
+	
 }
