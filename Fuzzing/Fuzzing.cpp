@@ -2,20 +2,9 @@
 //
 
 #include "Fuzzing.h"
-
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-	if (argc != 3) {
-		cout << "Invalid input\n" << "./Fuzzing <target program> <input>" << endl;
-		return 0;
-	}
-	else {
-		char* command[100];
-		strcpy
-		system();
-		return 0;
-	}
-	
+	fuzzer(1000, 'a', 26);
 }
