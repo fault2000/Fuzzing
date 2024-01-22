@@ -6,5 +6,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	fuzzer(1000, 'a', 26);
+	char* input = fuzzer(1000, 'a', 26);
+	CIF(input);
+	return 0;
 }
