@@ -7,4 +7,4 @@
 #include <stdio.h>
 #include <string.h>
 
-int fuzzer(int, int, int);
+char* fuzzer(int, int, int);
