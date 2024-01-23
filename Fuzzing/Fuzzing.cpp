@@ -1,7 +1,8 @@
 ﻿// Fuzzing.cpp : 애플리케이션의 진입점을 정의합니다.
 //
 
-#include "Fuzzing.h"
+#include <Fuzzing.h>
+#include <RandomFuzzer.h>
 using namespace std;
 
 int main(int argc, char *argv[])
