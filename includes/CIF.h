@@ -1,0 +1,3 @@
+
+
+int CIF(char* input);

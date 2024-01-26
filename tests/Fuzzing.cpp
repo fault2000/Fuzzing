@@ -3,6 +3,7 @@
 
 #include <Fuzzing.h>
 #include <RandomFuzzer.h>
+#include <CIF.h>
 using namespace std;
 
 int main(int argc, char *argv[])
