@@ -9,6 +9,6 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 	char* input = fuzzer(1000, 'a', 26);
-	CIF(input);
+	FILE* inputFile = CIF(input);
 	return 0;
 }

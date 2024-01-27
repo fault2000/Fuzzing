@@ -1,7 +1,7 @@
 #include <Fuzzing.h>
 using namespace std;
 
-int CIF(char* input) {
+FILE* CIF(char* input) {
 	FILE* tmpf = tmpfile();
 	if (tmpf == NULL) {
 		cout << "Unable to create tmp file" << endl;
@@ -15,7 +15,10 @@ int CIF(char* input) {
 	sprintf(fname, "/proc/self/fd/%d", fileno(tmpf));
 	if (readlink(fname, link, sizeof link - 1) > 0)
 		printf("File name: %s\n", link);
-	fread(&tmpf, sizeof &tmpf, 1, tmpf);
+	//fread(&tmpf, sizeof &tmpf, 1, tmpf);
+	char readFromFile[50];
+	fgets(readFromFile, 50, tmpf);
+	cout << readFromFile << endl;
 	
-	return 0;
+	return tmpf;
 }

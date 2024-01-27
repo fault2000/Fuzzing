@@ -1,3 +1,3 @@
 
 
-int CIF(char* input);
+FILE* CIF(char* input);
