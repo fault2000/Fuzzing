@@ -11,5 +11,18 @@ endif()
 
 project ("Fuzzing")
 
-# 하위 프로젝트를 포함합니다.
-add_subdirectory ("Fuzzing")
+add_subdirectory(src)
+
+set(LIBRARIES RandomFuzzer tools)
+
+foreach(LIBRARY ${LIBRARIES})
+	set(LIB_OBJS ${LIB_OBJS} $<TARGET_OBJECTS:${LIBRARY}>)
+endforeach()
+
+file(GLOB TEST ${CMAKE_SOURCE_DIR}/tests/*.cpp)
+
+add_executable(${PROJECT_NAME} ${TEST} ${LIB_OBJS})
+
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/includes)
+
+
