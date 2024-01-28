@@ -10,15 +10,14 @@ FILE* CIF(char* input) {
 	cout << input << endl;
 	fputs(input, tmpf);
 	rewind(tmpf);
-
+	/* checking tempfile's name
 	char fname[FILENAME_MAX], link[FILENAME_MAX] = { 0 };
 	sprintf(fname, "/proc/self/fd/%d", fileno(tmpf));
 	if (readlink(fname, link, sizeof link - 1) > 0)
 		printf("File name: %s\n", link);
+	*/
+	
 	//fread(&tmpf, sizeof &tmpf, 1, tmpf);
-	char readFromFile[50];
-	fgets(readFromFile, 50, tmpf);
-	cout << readFromFile << endl;
 	
 	return tmpf;
 }
