@@ -1,27 +1,29 @@
 #include <Exec.h>
-#include <iostream>
-#define BUFFER_MAX 128
-using namespace std;
 
-string exec(const char* cmd) {
-    char buffer[BUFFER_MAX];
-    string result;
-
+std::string exec(const char* cmd)
+{
+    std::array<char, 128> buffer;
+    std::string result;
     auto pipe = popen(cmd, "r");
 
-    if (!pipe) throw runtime_error("popen() failed!");
+    if (!pipe) throw std::runtime_error("popen() failed!");
 
-    while (fgets(buffer, BUFFER_MAX, pipe) != NULL) {
-        result += buffer;
+    while (!feof(pipe))
+    {
+        if (fgets(buffer.data(), 128, pipe) != nullptr)
+            result += buffer.data();
     }
 
     auto rc = pclose(pipe);
 
-    if (rc == EXIT_SUCCESS) { // == 0
-        return "";
+    if (rc == EXIT_SUCCESS)
+    {
+        std::cout << "SUCCESS\n";
     }
-    else if (rc == EXIT_FAILURE) {  // EXIT_FAILURE is not used by all programs, maybe needs some adaptation.
-        return result;
+    else
+    {
+        std::cout << "FAILED\n";
     }
+
     return result;
 }

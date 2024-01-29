@@ -9,8 +9,8 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	char* input = fuzzer(1000, 'a', 26);
-	FILE* inputFile = CIF(input);
-	cout << exec(argv[1]) << endl;
-	return 0;
+    char* input = fuzzer(1000, 'a', 26);
+    FILE* inputFile = CIF(input);
+    cout << exec(argv[1]) << endl;
+    return 0;
 }
